@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+	<title>Slides, A Slideshow Plugin for jQuery</title>
+	<link rel="stylesheet" href="../css/slide.css">
+<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+<link rel="stylesheet" type="text/css" href="../css/layout.css"/>
+<link rel="stylesheet" type="text/css" href="../css/main.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script src="http://www.webpeace.net/sunnykist/demo/js/slides.min.jquery.js"></script>
+	<script>
+		$(function(){
+			var startSlide = 1;
+			$('#slides').slides({
+				container: 'slide',
+				pagination: true,
+				generateNextPrev: true,
+				next: 'next',
+				prev: 'prev',
+				generatePagination: true,
+				paginationClass: 'page',
+				start: 1,
+				effect: 'slide',
+				slideSpeed: 650,
+				play: 3000,
+				pause: 0,
+				start: startSlide
+			});
+		});
+	</script>
+</head>
+<body>
+ 
+<!-- http://www.webpeace.net/content.jsp?num=124&userid=sunnykist&type=user -->
+
+<div style="padding:20px 0 0 20px">
+ 
+	<!-- slide -->
+	<div id="slides" class="slides">
+		<ul class="slide">
+			<li><a href="#"><img src="http://www.webpeace.net/sunnykist/demo/img/_rolling1.jpg" width="250" height="170" alt="1"></a></li>
+			<li><a href="#"><img src="http://www.webpeace.net/sunnykist/demo/img/_rolling2.jpg" width="250" height="170" alt="2"></a></li>
+			<li><a href="#"><img src="http://www.webpeace.net/sunnykist/demo/img/_rolling3.jpg" width="250" height="170" alt="3"></a></li>
+			<li>f</li>
+		</ul>
+	</div>
+	<!-- //slide -->
+	
+</div>
+ 
+</body>
+</html>
+

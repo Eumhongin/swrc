@@ -1,0 +1,138 @@
+@charset "euc-kr";
+
+
+/*------------------------------------------------------------------
+[게시판]
+--------------------------------------------------------------------*/
+.bbsState		{width:100%;}
+
+/* [TYPE:gray] 갤러리 lsit */
+.bbsGallery					{clear:both; width:713px; padding:20px 0 0 0px; border-top:2px solid #ddd; *zoom:1;}
+.bbsGallery:after			{content:""; clear:both; display:block;}
+.bbsGallery li				{float:left; width:236px; height:190px; padding:8px 0 0 0; margin-top:10px; background:url('/images/bbs/gallery_bg.gif') no-repeat center 0;}
+.bbsGallery li .img			{margin:0 auto; width:154px; height:120px;}
+.bbsGallery li p.title		{width:170px; margin:30px 0 0 30px; line-height:15px; text-align:center;}
+.bbsGallery li p.title a	{color:#717171;}
+
+/* [뉴스] 게시판 list */
+.nMain						{width:100%; overflow:auto; margin-bottom:20px; padding-top:20px; border-top:2px solid #ddd; background:url('/images/common/line_dot.gif') repeat-x left bottom;}
+.nMainCont					{float:left; padding:2px 0 10px 0;}
+.nMainCont .img				{float:left; margin-right:15px; padding:6px; border:1px solid #cbc9ca;}
+.nMainCont .date			{margin-top:8px; color:#9f9f9f;}
+.nList						{float:left; width:100%; overflow:auto; margin-bottom:15px; padding-bottom:15px; background:url('/images/common/line_dot.gif') repeat-x 0 bottom;}
+.nList .img					{float:left; margin-right:10px; padding:4px; border:1px solid #cbc9ca;}
+.nList .date				{margin-top:8px; color:#9f9f9f;}
+
+/* 뉴스 제목 폰트 설정 */
+.tbb			{color:#2845ac; font-size:20px; line-height:140%; letter-spacing:-1px; font-weight:bold;}
+.tbb A:link		{color:#2845ac; font-size:20px; line-height:140%; letter-spacing:-1px; font-weight:bold;}
+.tbb A:visited	{color:#2845ac; font-size:20px; line-height:140%; letter-spacing:-1px; font-weight:bold;}
+.tbb A:active	{color:#2845ac; font-size:20px; line-height:140%; letter-spacing:-1px; font-weight:bold;}
+.tbb A:hover	{color:#2845ac; font-size:20px; line-height:140%; letter-spacing:-1px; font-weight:bold;}
+
+.tbm			{color:#0f79dd; font-size:14px; font-weight:bold;}
+.tbm A:link		{color:#0f79dd; font-size:14px; font-weight:bold;}
+.tbm A:visited	{color:#0f79dd; font-size:14px; font-weight:bold;}
+.tbm A:active	{color:#0f79dd; font-size:14px; font-weight:bold;}
+.tbm A:hover	{color:#0f79dd; font-size:14px; font-weight:bold;}
+
+.tmb			{color:#2845ac; font-size:14px; font-weight:bold;}
+.tmb A:link		{color:#2845ac; font-size:14px; font-weight:bold;}
+.tmb A:visited	{color:#2845ac; font-size:14px; font-weight:bold;}
+.tmb A:active	{color:#2845ac; font-size:14px; font-weight:bold;}
+.tmb A:hover	{color:#2845ac; font-size:14px; font-weight:bold;}
+
+.tmm			{color:#0f79dd; font-size:12px; font-weight:bold;}
+.tmm A:link		{color:#0f79dd; font-size:12px; font-weight:bold;}
+.tmm A:visited	{color:#0f79dd; font-size:12px; font-weight:bold;}
+.tmm A:active	{color:#0f79dd; font-size:12px; font-weight:bold;}
+.tmm A:hover	{color:#0f79dd; font-size:12px; font-weight:bold;}
+
+
+/* [TYPE:gray] 일반게시판 lsit */
+.bbsList					{clear:both; background:url('/images/bbs/board_title_bg.gif') repeat-x;}
+.bbsList table				{width:100%; background:url('/images/bbs/board_title_right.gif') no-repeat right top;}
+.bbsList table td			{text-align:center;} 
+.bbsList table thead th		{height:34px; background:url('/images/bbs/board_title_bar.gif') no-repeat;}
+.bbsList table td			{height:2.5em; border-bottom:1px solid #ddd; background:#fff;}
+.bbsList table th.first-child {background:url('/images/bbs/board_title_left.gif') no-repeat;}
+.bbsList table .title		{text-align:left; padding:2px 5px 2px 5px; color:#555555;}
+.bbsList table .aleft		{text-align:left; padding-left:10px;}
+
+
+/* [view-write] */
+.bbsView					{margin:0 0 10px 0; border-bottom:2px solid #6b6b6b;}
+.bbsView .acenter			{text-align:center;}
+.bbsView .input_text, 
+.bbsView textarea,
+.bbsView select				{padding:2px; background:#fff; border:1px solid #ccc;}
+.bbsView table				{width:100%; border-top:2px solid #6b6b6b;}
+.bbsView table th, 
+.bbsView table td			{padding:6px 0 5px 10px; border-bottom:1px solid #ddd; text-align:left;}
+.bbsView table th			{background:#f1f1f1;}
+.bbsView .article			{margin:30px 22px; line-height:1.5em; color:#444444; word-break:break-all;}
+.bbsView .article .photo	{text-align:center;}
+.bbsView .write textarea	{display:block; width:98%; margin:5px auto;}
+
+
+/* next/prev */
+.bbsSlide				{clear:both;}
+.bbsSlide a				{color:#575757; text-decoration:none;}
+.bbsSlide a:hover		{text-decoration:underline;}
+
+.bbsSlide dl			{width:100%; border-bottom:1px solid #ddd;}
+.bbsSlide dt			{margin-bottom:-25px; padding:5px 0 3px 20px; border-top:1px solid #ddd; background:url('/images/bbs/board_view_bar.gif') no-repeat right center;}
+.bbsSlide dd			{margin-left:70px; padding:5px 0 3px 10px; color:#575757;}
+
+.bbsSlide .prev			{background:url('/images/bbs/arrow_pre.gif') no-repeat 5px center;}
+.bbsSlide .next			{background:url('/images/bbs/arrow_next.gif') no-repeat 5px center;}
+
+/* reply */
+.bbsReply_warp			{width:100%; margin-top:10px; margin-bottom:20px; background:#f7f7f7; border-top:1px solid #e9e9e9; border-bottom:1px solid #e9e9e9;}
+
+.bbsReplyList			{padding:10px 10px 10px 10px;}
+.bbsReplyList li		{padding:10px 10px 10px 15px; line-height:130%; border-bottom:1px dashed #d5d5d5; background:url('/images/bbs/bullet_reply.gif') no-repeat 0 12px;}
+
+.bbsReplyList .title	{float:left; padding-bottom:10px; font-weight:bold; color:#444444;}
+.bbsReplyList .btn		{float:right;}
+.bbsReplyList span.date	{font-weight:normal; color:#a1a1a1;}
+.bbsReplyList .cont		{clear:both; color:#444444;}
+.bbsReplyList .date		{color:#6e6e6e;}
+
+.bbsReply				{position:relative; padding:10px;}
+.bbsReply textarea		{width:560px; height:30px; margin-bottom:2px; padding:10px; border:1px solid #ccc; color:#444444; line-height:130%; overflow:auto; background:#ffffff;}
+.bbsReply .bullet_t		{padding-left:15px; background:url('/images/bbs/bullet_replyTitle.gif') no-repeat 0 3px; color:#444444;}
+.bbsReply .btn			{position:absolute; top:29px; right:15px;}
+
+/* list paging */
+.bbsBottom				{clear:both; width:100%; *zoom:1;}
+.bbsBottom:after		{content:""; clear:both; display:block;}
+
+.bbsPaging				{text-align:center; padding:20px 0 20px 0;}
+.bbsPaging li			{display:inline; margin-right:3px; font-weight:bold; font-size:11px;}
+.bbsPaging li a			{padding:2px 8px 0px 8px; border:1px solid #dddddd; display:inline-block;}
+.bbsPaging li a:hover	{padding:2px 8px 0px 8px; border:1px solid #56575c;}
+.bbsPaging li a.pre		{background:#f5f5f5; border:1px solid #56575c;}
+
+.bbsPaging li.b_first a,
+.bbsPaging li.b_first a:hover	{margin:0; padding:0; border:none;}
+.bbsPaging li.b_prev a,
+.bbsPaging li.b_prev a:hover	{margin:0; padding:0; border:none;}
+.bbsPaging li.b_next a,
+.bbsPaging li.b_next a:hover	{margin:0; padding:0; border:none;}
+.bbsPaging li.b_last a,
+.bbsPaging li.b_last a:hover	{margin:0; padding:0; border:none;}
+
+/* btn */
+.bbsBtn					{float:right; width:100%; margin-bottom:20px;}
+.bbsBtn p				{float:right; padding-right:3px;}
+
+/* list search */
+.bbsSearch				{clear:both; border:1px solid #dddddd; background:#F5F5F5;}
+.bbsSearch p			{padding:8px 0 8px 0; text-align:center;}
+
+/* password input */
+.bbsPassword			{width:250px; padding:10px; border:2px solid #bbbbbb; margin:0 auto; text-align:center; background:#fafafa;}
+.bbsPassword h3			{width:240px; margin-bottom:10px; padding-bottom:5px; border-bottom:1px solid #cbcbcb;}
+.bbsPassword p			{margin-top:10px;}
+

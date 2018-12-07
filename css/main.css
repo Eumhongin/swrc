@@ -1,0 +1,66 @@
+
+
+
+/* �˾��� */
+#popupZone			{position:relative; width:320px; height:171px; background:url('/images/main/popupzone_bg.gif') no-repeat;}
+#popupZone h2		{position:absolute; top:8px; left:11px;}
+#popupZone ul		{float:right; padding-right:10px; margin-top:4px;}
+#popupZone li		{display:inline;}
+#popupZone li div	{position:absolute; top:0; left:10px; margin-top:30px;}
+#popupZone .control	{position:absolute; top:9px; left:55px;}
+
+/* �����Ͻ� */
+#business			{position:relative; width:320px; height:171px;}
+#business h2		{position:absolute; top:8px; left:11px;}
+#business ul		{padding-right:10px; margin-top:4px;}
+#business li		{display:inline;}
+#business li div	{position:absolute; top:0; left:10px; margin-top:30px;}
+#business .control	{position:absolute; top:9px; left:55px;}
+
+/* service */
+#mainService			{float:left; position:relative; width:300px; height:110px; margin: 20px 0 0 40px;}
+#mainService li			{float:left; margin: 4px 0 0 2px;}
+#mainService li ul		{position:absolute; left:0px; top:22px;}
+#mainService li ul li	{width:290px; height:10px; left:4px;}
+#mainService p			{position:absolute; left:330px; top:13px; z-index:10;}
+
+/* �������� */
+#mainNotice				{float:left; position:absolute; top:538px; left:300px; width:180px; height:100px; margin: 6px 0 0 40px;}
+#mainNotice li			{float:left; margin: 12px 0 0 0;}
+#mainNotice li ul		{position:absolute; top:26px;}
+#mainNotice li ul li	{width:290px; height:8px;}
+#mainNotice p			{position:absolute; left:245px; top:13px; z-index:10;}
+#mainNotice .subject	{float:left; width:215px; overflow:hidden; white-space:nowrap;}
+#mainNotice .subject a	{color:#353535;}
+#mainNotice .date		{color:#6d6d6d; text-align:right;}
+
+/* �������� */
+#mainData				{float:left; position:absolute; top:538px; left:630px; width:180px; height:100px; margin: 6px 0 0 40px;}
+#mainData li			{float:left; margin: 12px 0 0 0;}
+#mainData li ul		{position:absolute; top:26px;}
+#mainData li ul li	{width:290px; height:8px;}
+#mainData p			{position:absolute; left:245px; top:13px; z-index:10;}
+#mainData .subject	{float:left; width:215px; overflow:hidden; white-space:nowrap;}
+#mainData .subject a	{color:#353535;}
+#mainData .date		{color:#6d6d6d; text-align:right;}
+
+/* qna */
+#mainQna				{float:left; position:relative; width:330px; height:110px; margin: 20px 0 0 40px;}
+#mainQna li				{float:left; margin: 2px 0 0 2px;}
+#mainQna li ul			{position:absolute; left:0px; top:22px;}
+#mainQna li ul li		{width:290px; height:10px; left:4px;}
+
+
+/* DGFEZ�̹��� */
+#dgfez		{float:left; margin:0 54px 0 0;}
+
+
+/* �������� */
+#study		{float:left; width:285px; margin:19px 0 0 0; background:url('/images/main/study_bg.gif') no-repeat right 9px;}
+#study .txt	{padding:10px 0 8px 0; font-size:11px; color:#888888;}
+#study p button {margin-left:3px; margin-top:-1px;}
+
+
+/* �������� */
+#talk		{float:left; width:246px; margin:19px 0 0 35px; background:url('/images/main/talk_bg.gif') no-repeat right 9px;}
+#talk .txt	{padding:10px 0 8px 0; font-size:11px; color:#888888;}

@@ -1,0 +1,7 @@
+.slide_wrap	{position:absolute;	width:500px;height:99px; }
+	
+#zoom_slide	{position:relative; display:none;margin:auto;overflow:hidden;}
+	/*width출력개수에 맞춰 자동계산(줌인 사이즈 포함)*/
+#zoom_slide ul{position:absolute;}
+/*줌아웃width, height 넣으면 안됨 스크립트사이즈로 설정*/
+#zoom_slide ul>li{position:relative;list-style-type:none;}

@@ -1,0 +1,57 @@
+/*--------------------------------------------------|
+| dTree 2.05 | www.destroydrop.com/javascript/tree/ |
+|---------------------------------------------------|
+*/
+
+.dtree {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666;
+	white-space: nowrap;
+}
+.dtree img {
+	border: 0px;
+	vertical-align: middle;
+}
+.dtree a {
+	color: #333;
+	text-decoration: none;
+}
+.dtree a.node, .dtree a.nodeSel {
+	white-space: nowrap;
+	padding: 1px 2px 1px 2px;
+}
+.dtree a.node:hover, .dtree a.nodeSel:hover {
+	color: #333;
+	text-decoration: underline;
+}
+.dtree a.nodeSel {
+	background-color: #c0d2ec;
+}
+.dtree .clip {
+	overflow: hidden;
+}
+
+/*2차메뉴*/
+#cate_2 { position:relative; width:400px; padding:30px 24px 70px 20px; z-index:20; }
+.cate_2_tl { position:relative; width:159px; height:29px; padding:10px 0 0 20px; background:url(../images/cate_2_tl_box.gif) no-repeat; font-weight:bold; color:#000; z-index:20; }
+.cate_2_list {  position:relative; width:179px; margin-top:30px; }
+
+/*2차메뉴_2*/
+#cate_3 { position:relative; width:400px; padding:30px 24px 70px 20px; z-index:20; }
+.cate_3_tl { position:relative; width:159px; height:29px; padding:10px 0 0 20px; background:url(../images/cate_2_tl_box.gif) no-repeat right 0; font-weight:bold; color:#000; z-index:20; }
+.cate_3_list {  position:relative; width:179px; margin-top:30px; } 
+
+.base_table { width:100%; height:100%; color:#2a2a2a; table-layout:fixed;  border-collapse:collapse; }
+.date_table { width:100%; color:#2a2a2a; table-layout:fixed;  border-collapse:collapse; border:3px solid #cccccc; margin-top:12px; }
+.date_table th { color:#242f66; border:1px solid #cccccc; padding:6px 6px; text-align:center; background:#efefef; font-weight:bold;}
+.date_table td { color:#535353; border:1px solid #cccccc; padding:6px 6px; text-align:center; }
+.date_table .align_left1 { text-align:left; padding-left:20px; }
+.date_table .align_left2 { text-align:left; padding-left:10px; }
+.date_table .align_right2 { text-align:right; padding-left:10px; }
+
+.contents_wrap_table { width:100%; height:100%; color:#2a2a2a; table-layout:fixed;  border-collapse:collapse;}
+.contents_pad { padding:30px 20px 70px 20px; }
+.contents_pad2 { padding:10px 10px 10px 10px; }
+.ct_btn_area { width:100%; height:28px; border-top:3px solid #222a55; padding-top:7px;}
+.ct_btn_area li { float:left; padding:0 1px; }

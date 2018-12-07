@@ -1,0 +1,13 @@
+<? 
+	//*******************  Information  ***********************
+	//	Program Title	:	·Î±×¾Æ¿ô
+	//	File Name		  :	logout.php
+	//*********************************************************
+	
+	session_start();
+	session_destroy();
+
+	include("../../../config/comm.inc.php"); 
+ 
+	movepage("loginForm.php","top");	
+?>
