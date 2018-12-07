@@ -146,6 +146,8 @@ echo "<script>console.log('$pn')</script>";
 						<img src="/images/main/fax.jpg">
 					</p>
 				</div><!--mainLeft End-->
+
+
 				<div id="mainRight">
 					<p class="">
 						<img src="/images/main/main_img.jpg">
@@ -165,9 +167,7 @@ echo "<script>console.log('$pn')</script>";
 								</p>
 							</li>
 						</ul>
-
 						<ul id="mainData">
-
 							<li class="">
 								<h2><a href="/open_content/sub.php?menuIdx=15"><img src="/images/main/data.jpg" alt="�ڷ��" id="bbsTitle_1" class="pad_l5"/></a>
 									<img src="/images/main/underbar_data.jpg" class="pad_l5"/></h2>
@@ -179,11 +179,13 @@ echo "<script>console.log('$pn')</script>";
 									</p>
 								</li>
 							</ul>
+
 				</div>
 
 			</div><!-- //mainWrap -->
 
 		</div><!-- //Wrap -->
+
 		</div><!-- //Wrap_main -->
 		<hr/>
 

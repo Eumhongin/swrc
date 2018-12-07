@@ -1,8 +1,8 @@
 <?
 
-	include("../../config/bbs_lib.inc.php"); 
+	include("../../config/bbs_lib.inc.php");
 	include("../../config/mysql.inc.php");
-	include("../../config/comm.inc.php"); 
+	include("../../config/comm.inc.php");
 
 
 	$pageUrl .= $pageName;
@@ -20,14 +20,14 @@
 	$mysql = new Mysql_DB;
 	$mysql->Connect();
 
-	// *** °Ô½ÃÆÇ È¯°æ **** 
+	// *** ï¿½Ô½ï¿½ï¿½ï¿½ È¯ï¿½ï¿½ ****
 	Bbs_Config($a_idx);
-	
-	
+
+
 	$real_num = $b_num;
 
 	$qry  = "Select * From $a_tablename Where b_num = $real_num";
-	
+
 	//if(!(($m_read == "Y" and $m_power == "2") or $adminstrator == true)) {
 	//	$qry  .= " and b_look = 0 ";
 	//}
@@ -35,8 +35,8 @@
 	$mysql->ParseExec($qry);
 	if ($mysql->RowCount() < 1) {
 
-		 message("µî·ÏµÈ ±ÛÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
-	
+		 message("ï¿½ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½");
+
 	} else {
 
 			$mysql->FetchInto(&$row);
@@ -65,28 +65,28 @@
 			$b_seminar       = $row[b_seminar];
 			$b_admin_check	 = $row[b_admin_check];
 
-			// *** ÀÐ±â ±ÇÇÑ ***
+			// *** ï¿½Ð±ï¿½ ï¿½ï¿½ï¿½ï¿½ ***
 			if ($m_read == "N" and !($m_power == "2" or $adminstrator == true)) {
-					message_url("ÀÐ±â ±ÇÇÑÀÌ ¾ø½À´Ï´Ù",$pageUrl."&page=/pages/admin/bbs/list.php&a_idx=$a_idx&category=$category&mnu_name=$mnu_name");
-			
+					message_url("ï¿½Ð±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½",$pageUrl."&page=/pages/admin/bbs/list.php&a_idx=$a_idx&category=$category&mnu_name=$mnu_name");
+
 			}
-			
-      // *** ºñ°ø°³ ***
+
+      // *** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ***
       if ($b_open == 1) {
-         
+
          $qry  = "Select b_pass From $a_tablename Where b_pass <> '' and b_ref = $b_ref";
 				 $mysql->ParseExec($qry);
 				 $mysql->FetchInto(&$open);
 
-         if($open[b_pass] <> $open_pass and !($m_power == "2" or $adminstrator == true)) {    // ¼Õ´ÔÀÏ¶§ ºñ¹Ð¹øÈ£¸¦ ¹°¾îº»´Ù
-            message("ºñ¹Ð¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù"); 
-         } elseif($HTTP_SESSION_VARS[duid] <> $b_id and !($m_power == "2" or $adminstrator == true)) { // È¸¿øÀÏ°æ¿ì ÀÚ½ÅÀÇ ±Û¸¸ º¼¼ö ÀÖ´Ù
-            message("ÀÐ±â ±ÇÇÑÀÌ ¾ø½À´Ï´Ù");
+         if($open[b_pass] <> $open_pass and !($m_power == "2" or $adminstrator == true)) {    // ï¿½Õ´ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½îº»ï¿½ï¿½
+            message("ï¿½ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½");
+         } elseif($HTTP_SESSION_VARS[duid] <> $b_id and !($m_power == "2" or $adminstrator == true)) { // È¸ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Û¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½
+            message("ï¿½Ð±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½");
          }
-			
+
 			}
-     
-      // *** ±Û ÀÌµ¿ ***
+
+      // *** ï¿½ï¿½ ï¿½Ìµï¿½ ***
 			if ($b_movetablename <> "" and !($m_power == "2" or $adminstrator == true)) {
 
 				 $qry  = "Select a_bbsname From bbs_admin Where a_tablename = '$b_movetablename'";
@@ -94,13 +94,13 @@
 				 $mysql->FetchInto(&$move);
 
 				 if($move[a_bbsname] <> "") {
-						message("ÀÌ °Ô½Ã¹°Àº [$move[a_bbsname]]À¸·Î ÀÌµ¿ µÇ¾ú½À´Ï´Ù");
+						message("ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ [$move[a_bbsname]]ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½");
 			   } else {
-         
-				 }  
+
+				 }
 			}
 
-			// *** ³»¿ë¿¡ Å×±× »ç¿ë ¿©ºÎ  ***
+			// *** ï¿½ï¿½ï¿½ë¿¡ ï¿½×±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ***
 			if($b_html == "0")     $b_content  = cnl2br($b_content);
 			elseif($b_html == "1") $b_content  = output_value($b_content);
 			elseif($b_html == "2") $b_content  = cnl2br(output_value($b_content));
@@ -110,41 +110,41 @@
 			$replacement = 'kimnazzzzz';
 			$b_content = preg_replace($pattern, $replacement, $b_content);
 
-			// ¸¸¾à &nbsp;°¡ µÎ °³ ¿¬¼ÓÀ¸·Î ¿À¸é &nbsp;&nbsp;·Î ÇØÁà¾ß ÇÑ´Ù
-			//¿ì¼± kimnakkkkk·Î ¹Ù²Û µÚ¿¡ &nbsp ÇÏ³ª¸¦ °ø¹éÀ¸·Î º¯°æ ÇÑµÚ ´Ù½Ã &nbsp;&nbsp;·Î ¹Ù²Ùµµ·Ï ÇÏÀÚ
+			// ï¿½ï¿½ï¿½ï¿½ &nbsp;ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ &nbsp;&nbsp;ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½
+			//ï¿½ì¼± kimnakkkkkï¿½ï¿½ ï¿½Ù²ï¿½ ï¿½Ú¿ï¿½ &nbsp ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñµï¿½ ï¿½Ù½ï¿½ &nbsp;&nbsp;ï¿½ï¿½ ï¿½Ù²Ùµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			$b_content = str_replace("kimnazzzzznbsp;kimnazzzzznbsp;", "kimnakkkkk", $b_content);
 
 			$b_content = str_replace("kimnazzzzznbsp;", " ", $b_content);
 			$b_content = str_replace("kimnazzzzz", "&", $b_content);
 
 			$b_content = str_replace("kimnakkkkk", "&nbsp;&nbsp;", $b_content);
-	
+
 			$b_content = str_replace("<br><br />", "<br>", $b_content);
 			$b_content = str_replace("<br />", "", $b_content);
-					
-			// *** ¼¼¹Ì³ª½ÅÃ»¼­ ¹Þ±â ***
-			//°ü¸®ÀÚ´Â ¼¼¹Ì³ª ½ÅÃ»À» ÇÒ ÇÊ¿ä°¡ ¾øÀ¸¹Ç·Î ÁÖ¼®.
-			if($b_seminar == "Y")  $b_content  = $b_content."<br><p align=center><a href=\"/pages/bbs/seminar.php?a_idx=$a_idx&b_num=$real_num\" target=\"displayWindow\" onclick=\"childwin=window.open('','displayWindow', 'toolbar=no,scrollbars=no,width=500,height=280,top=30,left=30');\" title=\"»õÃ¢¿­¸²\"><img src=/pages/bbs/image/seminar02.gif border=0></a>";
 
-      // *** Á¶È¸¼ö 1 Áõ°¡ ***
+			// *** ï¿½ï¿½ï¿½Ì³ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½Þ±ï¿½ ***
+			//ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê¿ä°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½Ö¼ï¿½.
+			if($b_seminar == "Y")  $b_content  = $b_content."<br><p align=center><a href=\"/pages/bbs/seminar.php?a_idx=$a_idx&b_num=$real_num\" target=\"displayWindow\" onclick=\"childwin=window.open('','displayWindow', 'toolbar=no,scrollbars=no,width=500,height=280,top=30,left=30');\" title=\"ï¿½ï¿½Ã¢ï¿½ï¿½ï¿½ï¿½\"><img src=/pages/bbs/image/seminar02.gif border=0></a>";
+
+      // *** ï¿½ï¿½È¸ï¿½ï¿½ 1 ï¿½ï¿½ï¿½ï¿½ ***
 			$cqry = "Update $a_tablename Set b_count = ($b_count+1) Where b_num = $b_num";
 			$mysql->ParseExec($cqry);
 
 	}
 
-	// *** °Ô½ÃÆÇ ºÐ·ù **** 
+	// *** ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Ð·ï¿½ ****
   if($a_category == "Y") {
     $sql =  " Select c_catename From bbs_admin_cate Where c_tablename='$a_tablename' and c_cate = $b_category ";
     $mysql->ParseExec($sql);
     $mysql->FetchInto(&$cate);
 
-    $c_catename = $cate[c_catename];	
+    $c_catename = $cate[c_catename];
   }
 ?>
 <script type="text/javascript" src="/pages/bbs/js/comm.js"></script>
 
 <?
-if($a_photo == "N" and $a_reply == "Y" and $a_reply_type == "1") //´äº¯ °Ô½ÃÆÇÀÏ¶§, ´äº¯ ±ÛÀÏ°æ¿ì
+if($a_photo == "N" and $a_reply == "Y" and $a_reply_type == "1") //ï¿½äº¯ ï¿½Ô½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½, ï¿½äº¯ ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½
 {
 	?>
 
@@ -152,55 +152,55 @@ if($a_photo == "N" and $a_reply == "Y" and $a_reply_type == "1") //´äº¯ °Ô½ÃÆÇÀÏ
 	<tr height="33">
 		<td width="8%" align="center" style="font-size:12pt;color=#ffffff" bgcolor="<?=$a_title_border ?>"><img src="/bbs/image/q.gif" border="0"  height="20"></td>
 		<td bgcolor="<?=$a_mouseover_color ?>">&nbsp;<b><? if ($a_category == "Y") { ?> [<?=$c_catename ?>] <?} ?><font color="<?=$a_font_color ?>"><strong><?=$b_subject ?></strong></font></b></td>
-		<td width="20%" bgcolor="<?=$a_mouseover_color ?>"><font color="<?=$a_font_color ?>">ÀÌ¸§ : <a href="mailto:<?=$b_email ?>"><?=$b_writer ?></font></a></td>
-		<td width="20%" bgcolor="<?=$a_mouseover_color ?>"><font color="<?=$a_font_color ?>">³¯Â¥ : <?=$b_regdate[0] ?></font></td>
+		<td width="20%" bgcolor="<?=$a_mouseover_color ?>"><font color="<?=$a_font_color ?>">ï¿½Ì¸ï¿½ : <a href="mailto:<?=$b_email ?>"><?=$b_writer ?></font></a></td>
+		<td width="20%" bgcolor="<?=$a_mouseover_color ?>"><font color="<?=$a_font_color ?>">ï¿½ï¿½Â¥ : <?=$b_regdate[0] ?></font></td>
 	</tr>
 	<tr height="1"><td bgcolor="#cccccc" colspan="6"></td></tr>
 	<tr>
 		<td colspan="4" bgcolor="#FFFFFF" style="padding:5pt">
 
-	
+
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<?
-			if ($a_photo == "Y") 
+			if ($a_photo == "Y")
 			{
 				?>
 				<tr>
 					<td>
 						<?
-						// *** Ã·ºÎÆÄÀÏ **** 
+						// *** Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ****
 						$fqry = "Select * From bbs_file Where f_tablename='$a_tablename' and f_num = $real_num Order by f_sort ";
 						$mysql->ParseExec($fqry);
 
-						while($mysql->FetchInto(&$file)) 
-						{  
-							if(Bbs_FileIcon($file[f_filename]) == "gif.gif" or Bbs_FileIcon($file[f_filename]) == "jpg.gif") 
+						while($mysql->FetchInto(&$file))
+						{
+							if(Bbs_FileIcon($file[f_filename]) == "gif.gif" or Bbs_FileIcon($file[f_filename]) == "jpg.gif")
 							{
 								$photo = "data/" . $a_idx . "/". $file[f_filename];
 								$size = getimagesize("$photo");
 
-								// ÀÌ¹ÌÁö ³ÐÀÌ 
+								// ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 								if($size[0] > $a_width) $photo_w = $a_width - 10;
 								else $photo_w = $size[0];
-								?>		
+								?>
 								<table border="0" cellpadding="0" cellspacing="3" align="center">
-								<tr><td><a href="javascript:ImgPopup('<?=$a_idx ?>','<?=$b_num ?>','<?=$file[f_sort] ?>','<?=$size[0] ?>','<?=$size[1] ?>')" <?=Brower_Status("ÀÌ¹ÌÁö È®´ë")?>><img src="<?=$photo ?>" width="<?=$photo_w ?>" border="0"></a></td></tr>	
+								<tr><td><a href="javascript:ImgPopup('<?=$a_idx ?>','<?=$b_num ?>','<?=$file[f_sort] ?>','<?=$size[0] ?>','<?=$size[1] ?>')" <?=Brower_Status("ï¿½Ì¹ï¿½ï¿½ï¿½ È®ï¿½ï¿½")?>><img src="<?=$photo ?>" width="<?=$photo_w ?>" border="0"></a></td></tr>
 								</table>
 								<?
 							}
-						} 
+						}
 						?>
 					</td>
 				</tr>
 				<?
-			}	
+			}
 			?>
 			<tr>
 				<td height="120"><?=$b_content ?></td>
 			</tr>
 			<?
-			if($a_ip == "Y" or $m_power == "2" or $adminstrator == true) 
-			{	//¾ÆÀÌÇÇ °ø°³
+			if($a_ip == "Y" or $m_power == "2" or $adminstrator == true)
+			{	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				?>
 				<tr>
 					<td align="right" style="padding-right:10;font-size:8pt;font-family:tahoma;color:gray"><b>From <?=$b_ip ?></b></td>
@@ -209,21 +209,21 @@ if($a_photo == "N" and $a_reply == "Y" and $a_reply_type == "1") //´äº¯ °Ô½ÃÆÇÀÏ
 			}
 			?>
 			<tr>
-				<td align="center"><? View_Icon($b_num) //±Û¾²±â, ¼öÁ¤, ´äº¯, ¸ñ·Ï, »èÁ¦ ¾ÆÀÌÄÜ ?></td>
+				<td align="center"><? View_Icon($b_num) //ï¿½Û¾ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½äº¯, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ?></td>
 			</tr>
 			</table>
-		
+
 		</td>
 	</tr>
 	</table>
 	<?
-	//È­¸é¿¡ ´äº¯±ÛÀ» º¸¿©ÁØ´Ù	
+	//È­ï¿½é¿¡ ï¿½äº¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½
 	$qry = "Select * From $a_tablename Where b_ref = $b_ref and b_step > 0";
 	$mysql->ParseExec($qry);
 
-	while($mysql->FetchInto(&$ref)) 
-	{  
-		// *** °Ô½ÃÆÇ ºÐ·ù **** 
+	while($mysql->FetchInto(&$ref))
+	{
+		// *** ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Ð·ï¿½ ****
 		$mysql2 = new Mysql_DB;
 		$mysql2->Connect();
 
@@ -231,7 +231,7 @@ if($a_photo == "N" and $a_reply == "Y" and $a_reply_type == "1") //´äº¯ °Ô½ÃÆÇÀÏ
 		$mysql2->ParseExec($sql);
 		$mysql2->FetchInto(&$ref_cate);
 
-		if($ref[b_id] <> "") 
+		if($ref[b_id] <> "")
 		{
 			$sql  = "Select user_name From members Where user_id = '$ref[b_id]'";
 			$mysql2->ParseExec($sql);
@@ -243,9 +243,9 @@ if($a_photo == "N" and $a_reply == "Y" and $a_reply_type == "1") //´äº¯ °Ô½ÃÆÇÀÏ
 			$user_name = $ref[b_writer];
 		}
 
-		$ref_step = $ref[b_step]; 
+		$ref_step = $ref[b_step];
 
-		// *** ³»¿ë¿¡ Å×±× »ç¿ë ¿©ºÎ  ***
+		// *** ï¿½ï¿½ï¿½ë¿¡ ï¿½×±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ***
 		if($ref[b_html] == "0")     $ref_content  = cnl2br($ref[b_content]);
 		elseif($ref[b_html] == "1") $ref_content  = output_value($ref[b_content]);
 		elseif($ref[b_html] == "2") $ref_content  = cnl2br(output_value($ref[b_content]));
@@ -256,47 +256,47 @@ if($a_photo == "N" and $a_reply == "Y" and $a_reply_type == "1") //´äº¯ °Ô½ÃÆÇÀÏ
 		<tr height="1"><td bgcolor="#555555"></td></tr>
 		<tr height="1"><td bgcolor="#FFFFFF"></td></tr>
 		</table>
-		
-		
+
+
 		<table width="100%" border="0" cellspacing="0" cellpadding="2">
 		<tr height="33">
 			<td width="8%" align="center" bgcolor="<?=$a_title_border ?>"><img src="/bbs/image/a.gif" border="0" height="20"></td>
 			<td bgcolor="<?=$a_mouseover_color ?>"><b><? if ($a_category == "Y") { ?> [<?=$ref_cate[c_catename] ?>] <?} ?><font color="<?=$a_font_color ?>"><strong><?=$ref[b_subject] ?></strong></font></b></td>
-			<td width="20%" bgcolor="<?=$a_mouseover_color ?>"><font color="<?=$a_font_color ?>">ÀÌ¸§ : <a href="mailto:<?=$b_email ?>"><?=$user_name ?></a></font></td>
-			<td width="20%" bgcolor="<?=$a_mouseover_color ?>"><font color="<?=$a_font_color ?>">³¯Â¥ : <?=substr($ref[b_regdate],0,10) ?></font></td>
+			<td width="20%" bgcolor="<?=$a_mouseover_color ?>"><font color="<?=$a_font_color ?>">ï¿½Ì¸ï¿½ : <a href="mailto:<?=$b_email ?>"><?=$user_name ?></a></font></td>
+			<td width="20%" bgcolor="<?=$a_mouseover_color ?>"><font color="<?=$a_font_color ?>">ï¿½ï¿½Â¥ : <?=substr($ref[b_regdate],0,10) ?></font></td>
 		</tr>
 		<tr height="1"><td bgcolor="#cccccc" colspan="6"></td></tr>
 		<tr>
 			<td colspan="4" bgcolor="#FFFFFF" style="padding:5pt;">
 
-		
+
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<?
-				if ($a_photo == "Y") 
+				if ($a_photo == "Y")
 				{
 					?>
 					<tr>
 						<td>
 							<?
-							// *** Ã·ºÎÆÄÀÏ **** 
+							// *** Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ****
 							$fqry = "Select * From bbs_file Where f_tablename='$a_tablename' and f_num = $ref[b_num] Order by f_sort ";
 							$mysql->ParseExec($fqry);
 
-							while($mysql->FetchInto(&$file)) 
-							{  
-								if(Bbs_FileExt($file[f_filename]) == "gif" or Bbs_FileExt($file[f_filename]) == "jpg") 
+							while($mysql->FetchInto(&$file))
+							{
+								if(Bbs_FileExt($file[f_filename]) == "gif" or Bbs_FileExt($file[f_filename]) == "jpg")
 								{
 									$photo = "data/" . $a_idx . "/". $file[f_filename];
 									$size = getimagesize("$photo");
 
-									// ÀÌ¹ÌÁö ³ÐÀÌ 
+									// ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 									if($size[0] > $a_width) $photo_w = $a_width - 10;
 									else $photo_w = $size[0];
-									?>		
+									?>
 									<table border="0" cellpadding="0" cellspacing="3" align="center">
-									<tr><td><a href="javascript:ImgPopup('<?=$a_idx ?>','<?=$b_num ?>','<?=$file[f_sort] ?>','<?=$size[0] ?>','<?=$size[1] ?>')" <?=Brower_Status("ÀÌ¹ÌÁö È®´ë")?>><img src="<?=$photo ?>" width="<?=$photo_w ?>" border="0"></a></td></tr>	
+									<tr><td><a href="javascript:ImgPopup('<?=$a_idx ?>','<?=$b_num ?>','<?=$file[f_sort] ?>','<?=$size[0] ?>','<?=$size[1] ?>')" <?=Brower_Status("ï¿½Ì¹ï¿½ï¿½ï¿½ È®ï¿½ï¿½")?>><img src="<?=$photo ?>" width="<?=$photo_w ?>" border="0"></a></td></tr>
 									</table>
-									<?		
+									<?
 								}else if(Bbs_FileExt($file[f_filename]) == "wmv"){
 										$photo = "data/" . $a_idx . "/". $file[f_filename];
 								?>
@@ -305,28 +305,28 @@ if($a_photo == "N" and $a_reply == "Y" and $a_reply_type == "1") //´äº¯ °Ô½ÃÆÇÀÏ
 										</object>
 								<?
 								}
-							} 
+							}
 							?>
 						</td>
 					</tr>
 					<?
-				}	
+				}
 				?>
 				<tr>
 					<td height="50"><?=$ref_content ?></td>
 				</tr>
 				<?
-				if($ref[b_id] == "" or ($ref[b_id] <> "" and $ref[b_id] == $HTTP_SESSION_VARS["duid"]) or ($m_power == "2" or $adminstrator == true)) 
-				{	//¾ÆÀÌÇÇ °ø°³
+				if($ref[b_id] == "" or ($ref[b_id] <> "" and $ref[b_id] == $HTTP_SESSION_VARS["duid"]) or ($m_power == "2" or $adminstrator == true))
+				{	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					?>
 					<tr><td align="right" style="padding-right:10;font-size:8pt;font-family:tahoma;color:gray"><b>From <?=$b_ip ?></b></td></tr>
-					<tr><td align="center"><? View_Icon($ref[b_num]) //±Û¾²±â, ¼öÁ¤, ´äº¯, ¸ñ·Ï, »èÁ¦ ¾ÆÀÌÄÜ ?></td></tr>
-					<? 
+					<tr><td align="center"><? View_Icon($ref[b_num]) //ï¿½Û¾ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½äº¯, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ?></td></tr>
+					<?
 				}
 				?>
 				</table>
-			
-			
+
+
 			</td>
 		</tr>
 		</table>
@@ -336,9 +336,9 @@ if($a_photo == "N" and $a_reply == "Y" and $a_reply_type == "1") //´äº¯ °Ô½ÃÆÇÀÏ
 else
 {
 ?>
-		<p class="contTitle"><?=$a_bbsname?> »ó¼¼³»¿ë</p>
+		<p class="contTitle"><?=$a_bbsname?> ï¿½ó¼¼³ï¿½ï¿½ï¿½</p>
 
-		<table class="bbsCont" cellspacing="0" summary="<?=$a_bbsname?> »ó¼¼³»¿ë">
+		<table class="bbsCont" cellspacing="0" summary="<?=$a_bbsname?> ï¿½ó¼¼³ï¿½ï¿½ï¿½">
 			<caption class="none"><?=$a_bbsname?></caption>
 			<colgroup>
 				<col width="15%" />
@@ -348,42 +348,42 @@ else
 			</colgroup>
 			<tbody>
 				<tr>
-					<th scope="row">Á¦¸ñ</th>
+					<th scope="row">ï¿½ï¿½ï¿½ï¿½</th>
 					<td colspan="3" class="tal">
 					<? if ($a_category == "Y") { ?> [<?=$c_catename ?>] <?} ?>
 					<strong><?=utf8ToEuckr($b_subject)?></strong></td>
 				</tr>
-				<?if($a_phone == "Y"){	//¿¬¶ôÃ³ »ç¿ë?>
+				<?if($a_phone == "Y"){	//ï¿½ï¿½ï¿½ï¿½Ã³ ï¿½ï¿½ï¿½ï¿½?>
 				<tr>
-					<th scope="row">¿¬¶ôÃ³</th>
+					<th scope="row">ï¿½ï¿½ï¿½ï¿½Ã³</th>
 					<td colspan="3" class="tal"><?=$b_phone?></td>
 				</tr>
 				<?}?>
-				<?if($a_email == "Y"){//ÀÌ¸ÞÀÏ »ç¿ë?>
+				<?if($a_email == "Y"){//ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½?>
 				<tr>
-					<th scope="row">ÀÌ¸ÞÀÏ</th>
+					<th scope="row">ï¿½Ì¸ï¿½ï¿½ï¿½</th>
 					<td colspan="3" class="tal"><?=utf8ToEuckr($b_email)?></td>
 				</tr>
 				<?}?>
-				<?if($a_homepage == "Y"){//È¨ÆäÀÌÁö »ç¿ë?>
+				<?if($a_homepage == "Y"){//È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½?>
 				<tr>
-					<th scope="row">È¨ÆäÀÌÁö</th>
+					<th scope="row">È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</th>
 					<td colspan="3" class="tal"><?=utf8ToEuckr($b_home)?></td>
 				</tr>
 				<?}?>
 				<tr>
-					<th scope="row">µî·ÏÀÏ</th>
+					<th scope="row">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</th>
 					<td class="tal"><?=$b_regdate[0]?></td>
-					<th scope="row">Á¶È¸¼ö</th>
+					<th scope="row">ï¿½ï¿½È¸ï¿½ï¿½</th>
 					<td class="tal"><?=$b_count?></td>
 				</tr>
 				<tr>
-					<th scope="row">ÀÛ¼ºÀÚ</th>
+					<th scope="row">ï¿½Û¼ï¿½ï¿½ï¿½</th>
 					<td class="tal"><?=utf8ToEuckr($b_writer)?></td>
-					<th scope="row">Ã·ºÎ</th>
+					<th scope="row">Ã·ï¿½ï¿½</th>
 					<td class="tal">
 						<?
-							if ($a_photo == "N") 
+							if ($a_photo == "N")
 							{
 						?>
 									<form name="file" method="post" target="_self">
@@ -392,19 +392,19 @@ else
 									<input type="hidden" name="num" value="">
 									<input type="hidden" name="filename" value="">
 										<?
-										// *** Ã·ºÎÆÄÀÏ **** 
+										// *** Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ****
 										$fqry = "Select * From bbs_file Where f_tablename='$a_tablename' and f_num = $real_num Order by f_sort ";
 										$mysql->ParseExec($fqry);
 										$i = 1;
-										while($mysql->FetchInto(&$file)) 
-										{  
+										while($mysql->FetchInto(&$file))
+										{
 											?>
-											<img src="/images/bbs/icon_file.gif" alt="ÆÄÀÏ" class="vmiddle" />
+											<img src="/images/bbs/icon_file.gif" alt="ï¿½ï¿½ï¿½ï¿½" class="vmiddle" />
 											<input type="hidden" name="file<?=$i ?>" value="<?=utf8ToEuckr($file[f_filename]) ?>">
 												<a href="javascript:FileDownload('<?=$i ?>', '<?=utf8ToEuckr($file[f_filename])?>')"><?=utf8ToEuckr($file[f_filename]) ?></a>
-											<? 
+											<?
 											$i++;
-										} 
+										}
 									?>
 									</form>
 								<?
@@ -412,43 +412,43 @@ else
 						?>
 					</td>
 				</tr>
-				<?if($a_admin_check == "Y" && $adminstrator == true && false){//°ü¸®ÀÚ ½ÂÀÎ ±â´É »ç¿ë. »ç¿ë¾ÈÇÔ?>
+				<?if($a_admin_check == "Y" && $adminstrator == true && false){//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?>
 				<tr>
-					<th scope="row">½ÂÀÎ¿©ºÎ</th>
+					<th scope="row">ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½</th>
 					<td colspan="3" class="tal f_orange">
 						<? if($b_admin_check == "Y"){ ?>
-							½ÂÀÎµÈ °Ô½Ã¹° ÀÔ´Ï´Ù.
-							<a href="<?=$pageUrl?>&amp;page=/pages/admin/bbs/update_admin_check.php&amp;b_num=<?=$b_num ?>&amp;a_idx=<?=$a_idx?>&amp;category=<?=$category?>&amp;look=<?=$look?>&amp;search=<?=$search?>&amp;keyword=<?=curlencode($keyword)?>&amp;pageIdx=<?=$pageIdx ?>&amp;check_flag=N">[½ÂÀÎÃë¼Ò]</a>
+							ï¿½ï¿½ï¿½Îµï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½Ô´Ï´ï¿½.
+							<a href="<?=$pageUrl?>&amp;page=/pages/admin/bbs/update_admin_check.php&amp;b_num=<?=$b_num ?>&amp;a_idx=<?=$a_idx?>&amp;category=<?=$category?>&amp;look=<?=$look?>&amp;search=<?=$search?>&amp;keyword=<?=curlencode($keyword)?>&amp;pageIdx=<?=$pageIdx ?>&amp;check_flag=N">[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]</a>
 						<?}else{?>
-							´ë±âÁßÀÎ °Ô½Ã¹° ÀÔ´Ï´Ù.
-							<a href="<?=$pageUrl?>&amp;page=/pages/admin/bbs/update_admin_check.php&amp;b_num=<?=$b_num ?>&amp;a_idx=<?=$a_idx ?>&amp;category=<?=$category?>&amp;look=<?=$look?>&amp;search=<?=$search ?>&amp;keyword=<?=curlencode($keyword)?>&amp;pageIdx=<?=$pageIdx ?>&amp;check_flag=Y">[½ÂÀÎ]</a>
+							ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½Ô´Ï´ï¿½.
+							<a href="<?=$pageUrl?>&amp;page=/pages/admin/bbs/update_admin_check.php&amp;b_num=<?=$b_num ?>&amp;a_idx=<?=$a_idx ?>&amp;category=<?=$category?>&amp;look=<?=$look?>&amp;search=<?=$search ?>&amp;keyword=<?=curlencode($keyword)?>&amp;pageIdx=<?=$pageIdx ?>&amp;check_flag=Y">[ï¿½ï¿½ï¿½ï¿½]</a>
 						<?}?>
 					</td>
 				</tr>
 				<?}?>
 
 			<tr>
-			<!--»ç¿ëÀÚ ÆäÀÌÁö¿¡¼­ º¸´Â °Í°ú Å©±â °°°Ô ¼öÁ¤-->
+			<!--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Í°ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½-->
 				<td colspan="4" class="tal" width="695" >
 				<?=utf8ToEuckr($b_content)?>
-				<?//if ($a_photo == "Y"){ 
+				<?//if ($a_photo == "Y"){
 					if (true){
 						?>
-				<p class="photo">				
+				<p class="photo">
 					<?
-						// *** Ã·ºÎÆÄÀÏ **** 
+						// *** Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ****
 						$fqry = "Select * From bbs_file Where f_tablename='$a_tablename' and f_num = $real_num Order by f_sort ";
 						$mysql->ParseExec($fqry);
 
-						while($mysql->FetchInto(&$file)) 
-						{  
+						while($mysql->FetchInto(&$file))
+						{
 							echo "<br />";
-							if(Bbs_FileExt($file[f_filename]) == "gif" or Bbs_FileExt($file[f_filename]) == "jpg" or Bbs_FileExt($file[f_filename]) == "JPG" or Bbs_FileExt($file[f_filename]) == "GIF"  or Bbs_FileExt($file[f_filename]) == "bmp" or Bbs_FileExt($file[f_filename]) == "BMP") 
+							if(Bbs_FileExt($file[f_filename]) == "gif" or Bbs_FileExt($file[f_filename]) == "jpg" or Bbs_FileExt($file[f_filename]) == "JPG" or Bbs_FileExt($file[f_filename]) == "GIF"  or Bbs_FileExt($file[f_filename]) == "bmp" or Bbs_FileExt($file[f_filename]) == "BMP")
 							{
 								$photo = "../../pages/bbs/data/" . $a_idx . "/". $file[f_filename];
 								$size = getimagesize("$photo");
-																
-								// size[0]: °¡·Î Å©±â, size[1]: ¼¼·Î Å©±â
+
+								// size[0]: ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½, size[1]: ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½
 								if($size[0] < 650) $photo_w = $size[0];
 								else $photo_w = 650;
 
@@ -459,14 +459,14 @@ else
 
 								?>
 								<img src="<?=$photo ?>" alt="<?=utf8ToEuckr($file[f_filename])?>" width="<?=$photo_w?>" height="<?=$photo_h?>">
-								<?		
+								<?
 							}
 						}
 					?>
 				</p>
 				<?}?>
 <?
-$cnt = preg_match_all('~/bbs/.*?\.jpg~', $b_content, $matches); 
+$cnt = preg_match_all('~/bbs/.*?\.jpg~', $b_content, $matches);
 $test = $matches[0];
 $test2 = str_replace("/bbs/","",$test[0]);
 $test3 = urlEncode($test2);
@@ -475,8 +475,8 @@ $b_content = str_replace ($test2,$test3,$b_content);
 				</td>
 			</tr>
 <?
-	if($a_command == "Y") 
-	{	//²¿¸®±Û »ç¿ë 
+	if($a_command == "Y")
+	{	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		?>
 		<tr>
 			<td colspan="4" class="tal">
@@ -484,40 +484,40 @@ $b_content = str_replace ($test2,$test3,$b_content);
 
 			<ul class="bbsReplyList">
 			<?
-			// *** ²¿¸®¸» **** 
+			// *** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ****
 			$cmqry  =  " Select c_id, c_num, c_feel, c_name,c_content, c_regdate, period_diff(date_format(now(),'%Y%m%d'),date_format(c_regdate,'%Y%m%d')) as new_icon ";
 			$cmqry .=  " From comment Where c_tablename='$a_tablename' and c_bnum = $real_num ";
 			$cmqry .=  " Order by c_num";
 			$mysql->ParseExec($cmqry);
 
-			$j = 0 ; 
-			while($mysql->FetchInto(&$com)) 
-			{   
+			$j = 0 ;
+			while($mysql->FetchInto(&$com))
+			{
 				$c_regdate = explode(" ",$com[c_regdate]);
 				$c_name    = utf8ToEuckr($com[c_name]) ;
 
-				if($com[c_name] == "") 
+				if($com[c_name] == "")
 				{
 					$c_name = $com[c_id];
 				}
 				?>
 				<li>
 					<p class="title"><?=$c_name?><span class="date"><?=$c_regdate[0]?></span></p>
-					<?//»õ ´ñ±Û »ç¿ëÇÒ°æ¿ì¿¡ »ç¿ë
+					<?//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ï¿½ì¿¡ ï¿½ï¿½ï¿½ï¿½
 						if($com[new_icon] == 0){
-							//»õ´ñ±Û
+							//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						}
 					?>
 					<p class="btn">
 					<!--
-						<a href=""><img src="/images/bbs/btn_comm_modify.gif" alt="¼öÁ¤" /></a>
+						<a href=""><img src="/images/bbs/btn_comm_modify.gif" alt="ï¿½ï¿½ï¿½ï¿½" /></a>
 					-->
 						<?
-						// ºñÈ¸¿ø¿¡°Ô ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇÒ ¼ö ÀÖ´Â ·¹ÀÌ¾î¸¦ º¸¿©ÁØ´Ù
-						if($HTTP_SESSION_VARS[duid] == "") 
+						// ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½
+						if($HTTP_SESSION_VARS[duid] == "")
 						{
-						?> 
-						<a href="javascript:showCommand(<?=$j ?>);"><img src="/images/bbs/btn_comm_del.gif" alt="»èÁ¦" /></a>
+						?>
+						<a href="javascript:showCommand(<?=$j ?>);"><img src="/images/bbs/btn_comm_del.gif" alt="ï¿½ï¿½ï¿½ï¿½" /></a>
 						<input type="hidden" name="open_pass" value="<?=$open_pass?>" />
 						<div style="position:relative;">
 							<div id="divCommand<?=$j ?>" style="display:none;position:absolute;left:0;top:-5;z-index:1;">
@@ -525,17 +525,17 @@ $b_content = str_replace ($test2,$test3,$b_content);
 									<tr height="15">
 										<td align="right" style="padding-right:5;"><img src="image/close.gif" style="cursor:hand" onClick="javascript:document.all.divCommand<?=$j ?>.style.display='none';" WIDTH="12" HEIGHT="11"></td>
 									</tr>
-									<tr>	
-										<td bgcolor="white" style="padding-left:20;padding-right:15;padding-bottom:10;padding-top:5">ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä<br>
+									<tr>
+										<td bgcolor="white" style="padding-left:20;padding-right:15;padding-bottom:10;padding-top:5">ï¿½ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½<br>
 											<input type="password" name="cm_pass<?=$j ?>" style="width:80; height:18;" class='tbox'>&nbsp;<a href="javascript:cm_checkfrm('<?=$j ?>','<?=$com[c_num] ?>');"><img src="/bbs/image/btn_delete.gif" border="0" align="absbottom"></a>
 										</td>
 									</tr>
 								</table>
-							</div> 
+							</div>
 						</div>
-						<?} //ºÎ°ü¸®ÀÚ³ª ÀÛ¼ºÀÚ´Â »èÁ¦ÇÒ ±ÇÇÑÀÌ ÁÖ¾îÁø´Ù.
+						<?} //ï¿½Î°ï¿½ï¿½ï¿½ï¿½Ú³ï¿½ ï¿½Û¼ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½.
 						else if($com[c_id] == $HTTP_SESSION_VARS[duid] or $m_power == "2" or $adminstrator == true){?>
-							<a href="javascript:cm_delete_admin('<?=$com[c_num] ?>', '<?=$pageUrl?>');"><img src="/images/bbs/btn_comm_del.gif" alt="»èÁ¦" /></a>
+							<a href="javascript:cm_delete_admin('<?=$com[c_num] ?>', '<?=$pageUrl?>');"><img src="/images/bbs/btn_comm_del.gif" alt="ï¿½ï¿½ï¿½ï¿½" /></a>
 						<?}?>
 
 					</p>
@@ -543,8 +543,8 @@ $b_content = str_replace ($test2,$test3,$b_content);
 						<?=utf8ToEuckr(cnl2br($com[c_content]))?>
 					</p>
 				</li>
-				<? 
-				$j++;	
+				<?
+				$j++;
 			}
 			?>
 			</ul>
@@ -564,38 +564,38 @@ $b_content = str_replace ($test2,$test3,$b_content);
 				<input type="hidden" name="mnu_name" value="<?=$mnu_name?>">
 				<input type="hidden" name="cm_num" value="">
 
-				<h4 class="bullet_t">´ñ±Û ÀÛ¼º</h4>
-				<textarea id="cm_content" name="cm_content" rows="4" cols="100" title="´ñ±Û³»¿ëÀÛ¼º"></textarea>
+				<h4 class="bullet_t">ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½</h4>
+				<textarea id="cm_content" name="cm_content" rows="4" cols="100" title="ï¿½ï¿½ï¿½Û³ï¿½ï¿½ï¿½ï¿½Û¼ï¿½"></textarea>
 
 					<?
-					//·Î±×ÀÎ ÇÏÁö ¾Ê¾ÒÀ» °æ¿ì
-					if($HTTP_SESSION_VARS[duid] == ""){					
+					//ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+					if($HTTP_SESSION_VARS[duid] == ""){
 					?>
 						<script type="text/javascript">
 							<!--
 								function loginCheck()
 								{
-									alert("´ñ±ÛÀº ·Î±×ÀÎ ÈÄ ÀÌ¿ëÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù.");
+									alert("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.");
 								}
 							//-->
 						</script>
-					<button type="button" onclick="loginCHeck();"><img src="/pages/admin/images/bbs/btn_comm_write.gif" alt="µî·Ï" /></button>
+					<button type="button" onclick="loginCHeck();"><img src="/pages/admin/images/bbs/btn_comm_write.gif" alt="ï¿½ï¿½ï¿½ï¿½" /></button>
 					<?}else{?>
-					<input type="image" src="/pages/admin/images/bbs/btn_comm_write.gif" value="µî·Ï" alt="µî·Ï" class="vmiddle" />
+					<input type="image" src="/pages/admin/images/bbs/btn_comm_write.gif" value="ï¿½ï¿½ï¿½ï¿½" alt="ï¿½ï¿½ï¿½ï¿½" class="vmiddle" />
 					<?}?>
 			</form>
 			</td>
 		</tr>
 	<?
-	}   //²¿¸®±Û »ç¿ë if¹® ´ÝÀ½ 
+	}   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ifï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	?>
 		</tbody>
 		<tfoot>
 		<tr>
 			<td colspan="4">
 				<?
-				if(!($a_photo == "N" and $a_reply == "Y" and $a_reply_type == "1")){ 
-				//±Û¾²±â, ¼öÁ¤, ´äº¯, ¸ñ·Ï, »èÁ¦ ¾ÆÀÌÄÜ
+				if(!($a_photo == "N" and $a_reply == "Y" and $a_reply_type == "1")){
+				//ï¿½Û¾ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½äº¯, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					View_Admin_Icon($b_num);
 				}
 				?>

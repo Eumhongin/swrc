@@ -50,10 +50,10 @@ function cut_str($str, $len, $suffix = '')
 
 		/* change character set to utf8 */
 		if (!$mysqli->set_charset("utf8")) {
-				//printf("Error loading character set utf8: %s\n", $mysqli->error);
+				printf("Error loading character set utf8: %s\n", $mysqli->error);
 				exit();
 		} else {
-				//printf("Current character set: %s\n", $mysqli->character_set_name());
+				printf("Current character set: %s\n", $mysqli->character_set_name());
 		}
 
 		$qry .= " SELECT b_id, b_top, b_num, b_date, b_category, b_subject, b_writer,b_regdate";
@@ -144,8 +144,9 @@ function cut_str($str, $len, $suffix = '')
 		}
 
 
-		$mysql->ParseFree();
-		$mysql->Disconnect();
+		mysqli_close($mysqli);
+		echo "<script>console.log('finish!');</script>";
+
 
 	}
 
